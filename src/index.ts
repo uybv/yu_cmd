@@ -7,10 +7,12 @@ dotenv.config({path: envFile});
 import {program} from 'commander';
 import cmdGetTime from './tasks/get_time';
 import cmdYoutube from './tasks/ytb_download';
+import cmdGit from './tasks/git';
 
 program.name('yu').version('1.0.0');
 
 program.addCommand(cmdGetTime);
 program.addCommand(cmdYoutube);
+program.addCommand(cmdGit);
 
 program.parse(process.argv);

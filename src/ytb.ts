@@ -5,14 +5,12 @@ const envFile = process.env.NODE_ENV ? `.env.${process.env.NODE_ENV}` : '.env';
 dotenv.config({path: envFile});
 
 import {program} from 'commander';
-import cmdGetTime from './tasks/get_time';
 import cmdYoutube from './tasks/ytb_download';
-import cmdGit from './tasks/xgit';
 
-program.name('yu').version('1.0.0');
+program.name('ytb').version('1.0.0');
 
-program.addCommand(cmdGetTime);
-program.addCommand(cmdYoutube);
-program.addCommand(cmdGit);
+cmdYoutube.commands.forEach(cmd => {
+    program.addCommand(cmd);
+});
 
 program.parse(process.argv);
